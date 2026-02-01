@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sweetuuuuuuuu 💖</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{box-sizing:border-box;font-family:"Poppins",sans-serif;}
+body{
+  margin:0;
+  background:linear-gradient(135deg,#ffb6c1,#ffd1dc);
+}
+.app{
+  max-width:420px;
+  margin:auto;
+  background:#fff;
+  min-height:100vh;
+  border-radius:25px 25px 0 0;
+  overflow:hidden;
+}
+header{
+  background:#ff4d88;
+  color:white;
+  text-align:center;
+  padding:15px;
+  font-size:20px;
+  font-weight:bold;
+}
+.page{display:none;padding:20px;animation:fade .4s;}
+.page.active{display:block;}
+@keyframes fade{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1}
+}
+.card{
+  background:#fff0f5;
+  border-radius:20px;
+  padding:20px;
+  margin-bottom:15px;
+  box-shadow:0 6px 15px rgba(0,0,0,.15);
+}
+.btn{
+  background:#ff4d88;
+  color:white;
+  border:none;
+  padding:12px 18px;
+  border-radius:30px;
+  cursor:pointer;
+}
+.btn:active{transform:scale(.95)}
+.anime{
+  font-size:55px;
+  text-align:center;
+  animation:bounce 1.5s infinite;
+}
+@keyframes bounce{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
+}
+.secret{
+  display:none;
+  background:#ffe6ef;
+  padding:12px;
+  border-radius:15px;
+  margin-top:10px;
+}
+.song{
+  background:white;
+  border-radius:15px;
+  padding:15px;
+  margin:10px 0;
+}
+.song-title{
+  display:flex;
+  justify-content:space-between;
+  cursor:pointer;
+}
+iframe{width:100%;border-radius:12px;margin-top:10px;}
+#heart{
+  font-size:45px;
+  text-align:center;
+  cursor:pointer;
+}
+nav{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  max-width:420px;
+  display:flex;
+  background:white;
+  border-top:1px solid #ddd;
+}
+nav button{
+  flex:1;
+  border:none;
+  background:none;
+  padding:10px;
+  font-size:12px;
+}
+nav button.active{color:#ff4d88;font-weight:bold;}
+.popup{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.4);
+}
+.popup-box{
+  background:white;
+  margin:150px auto;
+  width:300px;
+  padding:25px;
+  border-radius:20px;
+  text-align:center;
+  animation:pop .4s;
+}
+@keyframes pop{
+  from{transform:scale(.5)}
+  to{transform:scale(1)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+<header>My Sweetuuuuuuuu 💕</header>
+
+<!-- HOME -->
+<div class="page active" id="home">
+  <div class="card">
+    <div class="anime">🎀🐰🎀</div>
+    <h3>Hey Afrin 💖</h3>
+    <p>This cute app is only for you, my sweetuuuuuuuu.</p>
+    <button class="btn" onclick="openPopup()">Tap for surprise</button>
+  </div>
+
+  <div class="card">
+    <h3>Mini Love Game 🎮</h3>
+    <p>Tap the heart</p>
+    <div id="heart" onclick="addLove()">❤️</div>
+    <p>Love Score: <b><span id="score">0</span></b></p>
+  </div>
+</div>
+
+<!-- SONGS -->
+<div class="page" id="songs">
+  <div class="card">
+    <h3>Songs for You 🎵</h3>
+
+    <div class="song">
+      <div class="song-title" onclick="toggle('s1')">
+        <b>Tera Liye</b> 🎧
+      </div>
+      <div class="secret" id="s1">
+        This song feels like you 💗
+        <iframe src="https://www.youtube.com/embed/8Zc4S1shXas"></iframe>
+      </div>
+    </div>
+
+    <div class="song">
+      <div class="song-title" onclick="toggle('s2')">
+        <b>Pink Lips</b> 💋
+      </div>
+      <div class="secret" id="s2">
+        Cute + bold vibes 😌
+        <iframe src="https://www.youtube.com/embed/9uH6u1lM9qM"></iframe>
+      </div>
+    </div>
+
+    <div class="song">
+      <div class="song-title" onclick="toggle('s3')">
+        <b>Tere Naino Mein</b> 👀
+      </div>
+      <div class="secret" id="s3">
+        Your eyes are my favorite place 🥺
+        <iframe src="https://www.youtube.com/embed/9n7Xy3Yp9eA"></iframe>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- NOTE -->
+<div class="page" id="note">
+  <div class="card">
+    <div class="anime">🐻💖🐱</div>
+    <h3>Forever Note 💌</h3>
+    <p>Afrin, you’ll always be my sweetuuuuuuuu.</p>
+    <button class="btn" onclick="toggle('last')">Final secret</button>
+    <div class="secret" id="last">
+      I made all this just to make you smile 💗
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- POPUP -->
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <h3>Surprise 💖</h3>
+    <p>You are loved more than you know, sweetuuuuuuuu 🥺</p>
+    <button class="btn" onclick="closePopup()">Close</button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <button class="active" onclick="openPage('home',this)">🏠 Home</button>
+  <button onclick="openPage('songs',this)">🎵 Songs</button>
+  <button onclick="openPage('note',this)">💌 Note</button>
+</nav>
+
+<script>
+let score=0;
+function addLove(){
+  score++;
+  document.getElementById("score").innerText=score;
+}
+function openPage(id,btn){
+  document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll("nav button").forEach(b=>b.classList.remove("active"));
+  btn.classList.add("active");
+}
+function toggle(id){
+  const el=document.getElementById(id);
+  el.style.display=el.style.display==="block"?"none":"block";
+}
+function openPopup(){document.getElementById("popup").style.display="block";}
+function closePopup(){document.getElementById("popup").style.display="none";}
+</script>
+
+</body>
+</html>
